@@ -22,3 +22,37 @@
     left: 14px;
   }
 }
+
+header {
+  background: #7884CD;
+  color: white;
+
+  .header-content {
+    margin: 0 10% 5rem 10%;
+    padding: 10rem 0 5rem 0;
+  }
+}
+
+section {
+  &.main-content {
+    margin: 0 10% 0 10%;
+  }
+}
+
+article {
+  margin: 3rem 0 3rem 0;
+}
+
+footer {
+  background: #AFAFAF;
+  margin: 0 10% 0 10%;
+  padding: 2rem 5rem 2rem 5rem;
+}
+
+ul {
+  &.footer-links {
+    list-style: none;
+    padding-left: 0;
+  }
+}
+
