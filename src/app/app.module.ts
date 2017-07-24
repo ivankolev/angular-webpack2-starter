@@ -26,6 +26,7 @@ import { routes } from './app.routing';
 import { AppComponent } from './app.component';
 
 import { AppState } from './reducers';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AppState } from './reducers';
     APP_IMPORTS,
     IdlePreloadModule.forRoot(), // forRoot ensures the providers are only created once
     RouterModule.forRoot(routes, { useHash: false, preloadingStrategy: IdlePreload }),
+    NgxDatatableModule
   ],
   bootstrap: [AppComponent],
   exports: [AppComponent],

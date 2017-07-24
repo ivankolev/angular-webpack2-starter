@@ -18,10 +18,25 @@ export class AppComponent {
   mobile = MOBILE;
   views = views;
 
+  rows = [];
+  loadingIndicator: boolean = true;
+  reorderable: boolean = true;
+  columns = [
+    { prop: 'name' },
+    { name: 'Description' },
+    { name: 'Price' },
+    { prop: 'url'}
+  ];
+
   constructor(
     public route: ActivatedRoute,
     public router: Router
-  ) { }
+  ) {
+    this.fetch((data) => {
+      this.rows = data;
+      //setTimeout(() => { this.loadingIndicator = false; }, 1500);
+    });
+  }
 
   activateEvent(event) {
     if (ENV === 'development') {
@@ -33,5 +48,15 @@ export class AppComponent {
     if (ENV === 'development') {
       console.log('Deactivate Event', event);
     }
+  }
+  fetch(cb) {
+    const req = new XMLHttpRequest();
+    req.open('GET', `assets/data/menu.json`);
+
+    req.onload = () => {
+      cb(JSON.parse(req.response));
+    };
+
+    req.send();
   }
 }
